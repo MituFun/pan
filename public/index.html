@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文件下载</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 10px 0; }
-        a { text-decoration: none; color: #007bff; }
-        a:hover { text-decoration: underline; }
+        body { font-family: Arial, sans-serif; }
+        .folder > ul { display: none; }
+        .folder.open > ul { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body>
-    <h2>文件下载列表</h2>
-    <ul id="file-list">加载中...</ul>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">📂 文件下载列表</h2>
+        <ul id="file-list" class="space-y-2 text-gray-800">加载中...</ul>
+    </div>
 
     <script src="script.js"></script>
 </body>
